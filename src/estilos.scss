@@ -24,66 +24,72 @@ html, body, #root{
     background-color: $colorPrimario;
     color:$colorSecundario;
     box-shadow: 0 2px 5px;
-}
+    
+    .navbar {
+        display: flex;
 
-.botonera{
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    width: 4rem;
-    height:2rem;
-    font-size:100%;
-    background-color:$colorSecundario;
-    color:$colorPrimario;
-}
+        a {
+            list-style: none;
+            background-color:#000;
+            text-decoration:none;
+            color:#fff;
+            padding:10px 15px;
+            
+            &:hover {
+                background-color: #434343;
+            }
+        }
 
-.navbar {
-    list-style: none;
-    ul{
-        list-style: none;
-    }
-    li a {
-        width: 100%;
-        background-color:#000;
-        text-decoration:none;
-        color:#fff;
-        padding:10px 15px;
-        display:block;
-    }
-}
-
-.navbar li a:hover {
-    background-color: #434343;
-}
-
-.navbar li:hover > ul {
-    display: block;
-}
-
-nav > li{
-    float:left;
-    background-color:#000;
-}
-
-.navbar li ul{
-    display: none;
-    position:absolute;
-    min-width: 120px;
-    li{
-        position:relative;
-        ul{
-            right: -26vh;
-            top: 6.3vh;
+        .cart{
+            font-size:20px;
+            color:white;
+            list-style: none;
         }
     }
 }
 
-nav a{
-    width: 100%;
-    margin-left: 1rem;
-    color:$colorSecundario;
-    font-family: cursive;
+.ItemListContainer{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
 }
+
+.ItemDetailContainer{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+}
+
+.botonera{
+    width: 6rem;
+    height:6rem;
+    font-size:100%;
+    background-color:$colorSecundario;
+    color:$colorPrimario;
+    .sumar{
+        width: 100%;
+        font-size:1.2rem;
+        background-color:$colorPrimario;
+    }
+    .restar{
+        width: 100%;
+        font-size:1.2rem;
+        background-color:$colorPrimario;
+    }
+    .agregarCarrito{
+        width: 100%;
+        font-size:1.2rem;
+        background-color:grey;
+        color:$colorPrimario;
+    }
+    .contador{
+        display: flex;
+        justify-content:center;
+        font-size:1.2rem;
+    }
+}
+
+
 
 #root{
     display: flex;

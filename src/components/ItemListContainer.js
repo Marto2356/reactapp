@@ -25,7 +25,7 @@ const ItemListContainer = (props) => {
     },[generos]);
 
     return (
-        <div>
+        <div className="ItemListContainer">
             <ItemList lista={listaProductos}/>
         </div>
     )

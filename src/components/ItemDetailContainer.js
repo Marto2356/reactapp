@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
 import ItemDetail from "./ItemDetail"
 import productosBack from '../assets/productos'
-import ItemCount from "./ItemCount"
 import {useParams} from 'react-router-dom'
 
-const ItemDetailContainer = (props) => {
+const ItemDetailContainer = () => {
     const [producto, setProducto] = useState({})
 
     const {id} = useParams();
@@ -21,10 +20,8 @@ const ItemDetailContainer = (props) => {
         });
     });
 
-    return  <div>
+    return  <div className="ItemDetailContainer">
                 <ItemDetail producto={producto}/>
-
-                <ItemCount className="botonera" inicial={1} stock={10}/>
             </div>;
 };
 

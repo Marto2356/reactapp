@@ -4,15 +4,18 @@ import Footer from './Footer'
 import {ToastContainer} from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom'
+import MiProvider from './CartContext'
 
 function App () {
     return  (
-        <BrowserRouter>
-            <Header/>
-            <Main/>
-            <Footer/>
-            <ToastContainer/>
-        </BrowserRouter>
+        <MiProvider>
+            <BrowserRouter>
+                <Header/>
+                <Main/>
+                <Footer/>
+                <ToastContainer/>
+            </BrowserRouter>
+        </MiProvider>
     )
 }
 export default App

@@ -49,9 +49,8 @@ html, body, #root{
 }
 
 .ItemListContainer{
-    height: 100vh;
     display:flex;
-    justify-content: center;
+    flex-grow: 1;
 }
 
 .ItemDetailContainer{

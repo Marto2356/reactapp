@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import ItemCount from './ItemCount'
 import {contexto} from './CartContext'
+import {Link} from 'react-router-dom'
 
 const ItemDetail = (props) => {
     const { nombre, generos, autor, fecha, precio,img } = props.producto;
@@ -10,7 +11,10 @@ const ItemDetail = (props) => {
 
     const onAdd = (unidadesSeleccionadas) => {
         carritoContext.agregarAlCarrito(props.producto,unidadesSeleccionadas)
+        setEsconderBoton(false)
     }
+
+    const [esconderBoton,setEsconderBoton] = useState(true)
 
     return (
         <div>
@@ -20,8 +24,7 @@ const ItemDetail = (props) => {
             <h3>Autor: {autor}</h3>
             <h3>Fecha: {fecha}</h3>
             <h3>Precio: ${precio}</h3>
-
-            <ItemCount className="botonera" inicial={1} stock={10} onAdd={onAdd} producto={props.producto}/>
+            {esconderBoton ? <ItemCount className="botonera" inicial={1} stock={10} onAdd={onAdd}/> : <Link to="/carrito">Ir al carrito</Link>}
         </div>
     )
 }

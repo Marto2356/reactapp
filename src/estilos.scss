@@ -51,6 +51,12 @@ html, body, #root{
 .ItemListContainer{
     display:flex;
     flex-grow: 1;
+    .verDetalles{
+        font-size:1.2rem;
+        height:25px;
+        background-color:grey;
+        color:$colorPrimario;
+    }
 }
 
 .ItemDetailContainer{
@@ -87,8 +93,22 @@ html, body, #root{
         font-size:1.2rem;
     }
 }
+.irAlCarrito{
+    font-size:1.2rem;
+    background-color:grey;
+    color:$colorPrimario;
+}
 
-
+.carrito{
+    height: 100vh;
+    font-size:1.2rem;
+    .quitarCarrito{
+    font-size:1.2rem;
+    height:25px;
+    background-color:grey;
+    color:$colorPrimario;
+    }
+}
 
 #root{
     display: flex;

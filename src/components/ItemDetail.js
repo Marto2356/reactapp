@@ -24,7 +24,7 @@ const ItemDetail = (props) => {
             <h3>Autor: {autor}</h3>
             <h3>Fecha: {fecha}</h3>
             <h3>Precio: ${precio}</h3>
-            {esconderBoton ? <ItemCount className="botonera" inicial={1} stock={10} onAdd={onAdd}/> : <Link to="/carrito">Ir al carrito</Link>}
+            {esconderBoton ? <ItemCount className="botonera" inicial={1} stock={10} onAdd={onAdd}/> : <Link to="/carrito" className="irAlCarrito">Ir al carrito</Link>}
         </div>
     )
 }

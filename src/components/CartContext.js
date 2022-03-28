@@ -6,30 +6,28 @@ const MiProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
   
   const agregarAlCarrito = (producto, cantidad) => {
-    const carritoAux = [...carrito];
     let cartProduct = {producto,cantidad}
 
+    let carritoAux = []
     if(isInCart(producto)) {
       cartProduct = carrito.find(item => item.producto.id === producto.id)
-      cartProduct = cartProduct.cantidad + cantidad
+      cartProduct.cantidad = cartProduct.cantidad + cantidad
       carritoAux = [...carrito]
     }else{
-      carritoAux.push({ producto, cantidad });
-      setCarrito(carritoAux, ...carrito)
+      carritoAux = [cartProduct, ...carrito]
     }
-
-    
+    return setCarrito(carritoAux)
   };
   
   const isInCart = (producto) => {
-    if (carrito){
-      carrito.some(item => item.producto.id === producto.id)
-    }
+    return carrito && carrito.some(item => item.producto.id === producto.id)
   }
   
-  const borrarDelCarrito = (id) => {
-    const carritoAux = carrito.filter(elemento=>elemento.producto.id !==id);
-    setCarrito(carritoAux)
+  const borrarDelCarrito = (producto) => {
+    if(isInCart(producto)) {
+      const carritoAux = carrito.filter(item=>item.producto !== producto);
+      setCarrito(carritoAux)
+    }
   };
 
   const limpiarCarrito = () => {

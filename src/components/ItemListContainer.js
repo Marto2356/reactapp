@@ -1,48 +1,44 @@
 import React, {useEffect,useState} from 'react'
 import ItemList from './ItemList'
-import productosBack from '../assets/productos'
 import {useParams} from 'react-router-dom'
 import {db} from './Firebase'
-import {getDocs, collection} from 'firebase/firestore'
+import {getDocs, collection, addDoc, query, where} from 'firebase/firestore'
 
 const ItemListContainer = (props) => {
 
     const [listaProductos, setListaProductos] = useState([])
 
-    const {generos}=useParams();
+    const {id}=useParams();
 
     useEffect(() => {
 
-        const libroCollection = collection(db,"libros")
-        const documentos = getDocs(libroCollection)
-        
-        documentos
-            .then((respuesta) =>{
-                const aux = []
-
-                respuesta.forEach((documento) => {
-                    const libro = {
-                        id: documento.id,
-                        ...documento.data()
-                    }
-                    aux.push(libro)
+        if(!id){
+            const libroCollection = collection(db,"libros")
+            const documentos = getDocs(libroCollection)
+    
+            documentos
+            .then(respuesta => {
+            const libros = respuesta.docs.map(doc => {
+                    const libro = doc.data()
+                    return libro
                 })
-
-                setListaProductos(aux)
+                setListaProductos(libros)
             })
-        
-        // const promise = new Promise ((resolve, reject) => {
-        //     setTimeout(() => {
-        //         resolve(
-        //             generos?
-        //             productosBack.filter((item) => 
-        //             item.generos===generos
-        //         ):productosBack);
-        //     },2000);
-        // }).then((productos) => {
-        //     setListaProductos(productos);
-        // });
-    },[generos]);
+        } else {
+            const libroCollection = collection(db,"libros")
+            const miFiltro = query(libroCollection,where("generos","==",id))
+            const documentos = getDocs(miFiltro)
+
+            documentos
+            .then(respuesta => {
+            const libros = respuesta.docs.map(doc => {
+                    const libro = doc.data()
+                    return libro
+                })
+                setListaProductos(libros)
+            })
+        }
+    },[id]);
 
     return (
         <div className="ItemListContainer">

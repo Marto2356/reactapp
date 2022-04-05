@@ -7,7 +7,6 @@ const ItemDetail = (props) => {
     const { nombre, generos, autor, fecha, precio,img } = props.producto;
 
     const carritoContext = useContext(contexto)
-    console.log(carritoContext)
 
     const onAdd = (unidadesSeleccionadas) => {
         carritoContext.agregarAlCarrito(props.producto,unidadesSeleccionadas)

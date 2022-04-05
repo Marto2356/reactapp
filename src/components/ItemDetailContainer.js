@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
                 const libro = doc.data()
                 return libro
             })
-            setProducto(libros)
+            setProducto(libros[0])
         })
     },[id]);
 

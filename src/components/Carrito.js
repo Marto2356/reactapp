@@ -47,10 +47,21 @@ const Carrito = () => {
                 <p>{item.cantidad}</p>
                 <button onClick={()=>borrarDelCarrito(item.producto)} className="quitarCarrito">Eliminar del carrito</button>
                 <button onClick={()=>limpiarCarrito()} className="quitarCarrito">Vaciar carrito</button>
-                <button onClick={handleClick} className="quitarCarrito">Confirmar compra</button>
+                {/* <button onClick={handleClick} className="quitarCarrito">Confirmar compra</button> */}
                 </div>
             ))
             }
+
+            <div className="cardContainer"  style={{ width: "18rem" }}>
+                <p> Usuario: </p>
+                <p>Nombre: {compra.buyer?.nombre} </p>
+                <p> Apellido: {compra.buyer?.apellido} </p>
+                <p> Contacto: {compra.buyer?.email} </p>
+                <p>Orden de Compra:  {compra.id} </p>
+                <p>Total: ${compra.total} </p> 
+               <button onClick={handleClick}>Confirmar compra</button>
+            </div>
+         
         </>
     )
 }

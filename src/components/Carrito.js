@@ -47,7 +47,6 @@ const Carrito = () => {
                 <p>{item.cantidad}</p>
                 <button onClick={()=>borrarDelCarrito(item.producto)} className="quitarCarrito">Eliminar del carrito</button>
                 <button onClick={()=>limpiarCarrito()} className="quitarCarrito">Vaciar carrito</button>
-                {/* <button onClick={handleClick} className="quitarCarrito">Confirmar compra</button> */}
                 </div>
             ))
             }
@@ -61,7 +60,6 @@ const Carrito = () => {
                 <p>Total: ${compra.total} </p> 
                <button onClick={handleClick}>Confirmar compra</button>
             </div>
-         
         </>
     )
 }
